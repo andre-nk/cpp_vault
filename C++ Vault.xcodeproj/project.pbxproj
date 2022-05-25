@@ -8,7 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		D6B4B9B3283E73760071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9B2283E73760071B67A /* main.cpp */; };
+		D6B4B9DA283E73980071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9BE283E73970071B67A /* main.cpp */; };
+		D6B4B9DB283E73980071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9C7283E73970071B67A /* main.cpp */; };
+		D6B4B9DC283E73980071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9D0283E73980071B67A /* main.cpp */; };
+		D6B4B9DD283E73980071B67A /* pointer_to_char.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9D5283E73980071B67A /* pointer_to_char.cpp */; };
+		D6B4B9DE283E73980071B67A /* pointer_size.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9D6283E73980071B67A /* pointer_size.cpp */; };
+		D6B4B9DF283E73980071B67A /* pointer_rules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9D7283E73980071B67A /* pointer_rules.cpp */; };
+		D6B4B9E1283E73980071B67A /* dynamic_heap_memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9D9283E73980071B67A /* dynamic_heap_memory.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6B4B9C0283E73970071B67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6B4B9BA283E73970071B67A /* Stack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6CD076A28312A4A00C551BB;
+			remoteInfo = Stack;
+		};
+		D6B4B9C9283E73970071B67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6B4B9C3283E73970071B67A /* Array.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6A61A84283CC58100B40A08;
+			remoteInfo = Array;
+		};
+		D6B4B9D2283E73980071B67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6B4B9CC283E73980071B67A /* Queue.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6180A5C2833948F00CBDDEA;
+			remoteInfo = Queue;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D6B4B9AD283E73760071B67A /* CopyFiles */ = {
@@ -25,6 +56,16 @@
 /* Begin PBXFileReference section */
 		D6B4B9AF283E73760071B67A /* C++ Vault */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C++ Vault"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B4B9B2283E73760071B67A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D6B4B9BA283E73970071B67A /* Stack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stack.xcodeproj; sourceTree = "<group>"; };
+		D6B4B9BE283E73970071B67A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D6B4B9C3283E73970071B67A /* Array.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Array.xcodeproj; sourceTree = "<group>"; };
+		D6B4B9C7283E73970071B67A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D6B4B9CC283E73980071B67A /* Queue.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Queue.xcodeproj; sourceTree = "<group>"; };
+		D6B4B9D0283E73980071B67A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D6B4B9D5283E73980071B67A /* pointer_to_char.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pointer_to_char.cpp; sourceTree = "<group>"; };
+		D6B4B9D6283E73980071B67A /* pointer_size.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pointer_size.cpp; sourceTree = "<group>"; };
+		D6B4B9D7283E73980071B67A /* pointer_rules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pointer_rules.cpp; sourceTree = "<group>"; };
+		D6B4B9D9283E73980071B67A /* dynamic_heap_memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dynamic_heap_memory.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +98,99 @@
 		D6B4B9B1283E73760071B67A /* C++ Vault */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4B9C2283E73970071B67A /* Array */,
+				D6B4B9D4283E73980071B67A /* Pointers */,
+				D6B4B9CB283E73980071B67A /* Queue */,
+				D6B4B9B9283E73970071B67A /* Stack */,
 				D6B4B9B2283E73760071B67A /* main.cpp */,
 			);
 			path = "C++ Vault";
+			sourceTree = "<group>";
+		};
+		D6B4B9B9283E73970071B67A /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9BA283E73970071B67A /* Stack.xcodeproj */,
+				D6B4B9BD283E73970071B67A /* Stack */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		D6B4B9BB283E73970071B67A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9C1283E73970071B67A /* Stack */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6B4B9BD283E73970071B67A /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9BE283E73970071B67A /* main.cpp */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		D6B4B9C2283E73970071B67A /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9C3283E73970071B67A /* Array.xcodeproj */,
+				D6B4B9C6283E73970071B67A /* Array */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		D6B4B9C4283E73970071B67A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9CA283E73970071B67A /* Array */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6B4B9C6283E73970071B67A /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9C7283E73970071B67A /* main.cpp */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		D6B4B9CB283E73980071B67A /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9CC283E73980071B67A /* Queue.xcodeproj */,
+				D6B4B9CF283E73980071B67A /* Queue */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		D6B4B9CD283E73980071B67A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9D3283E73980071B67A /* Queue */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6B4B9CF283E73980071B67A /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9D0283E73980071B67A /* main.cpp */,
+			);
+			path = Queue;
+			sourceTree = "<group>";
+		};
+		D6B4B9D4283E73980071B67A /* Pointers */ = {
+			isa = PBXGroup;
+			children = (
+				D6B4B9D5283E73980071B67A /* pointer_to_char.cpp */,
+				D6B4B9D6283E73980071B67A /* pointer_size.cpp */,
+				D6B4B9D7283E73980071B67A /* pointer_rules.cpp */,
+				D6B4B9D9283E73980071B67A /* dynamic_heap_memory.cpp */,
+			);
+			path = Pointers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +238,20 @@
 			mainGroup = D6B4B9A6283E73760071B67A;
 			productRefGroup = D6B4B9B0283E73760071B67A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D6B4B9C4283E73970071B67A /* Products */;
+					ProjectRef = D6B4B9C3283E73970071B67A /* Array.xcodeproj */;
+				},
+				{
+					ProductGroup = D6B4B9CD283E73980071B67A /* Products */;
+					ProjectRef = D6B4B9CC283E73980071B67A /* Queue.xcodeproj */;
+				},
+				{
+					ProductGroup = D6B4B9BB283E73970071B67A /* Products */;
+					ProjectRef = D6B4B9BA283E73970071B67A /* Stack.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D6B4B9AE283E73760071B67A /* C++ Vault */,
@@ -114,12 +259,43 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D6B4B9C1283E73970071B67A /* Stack */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Stack;
+			remoteRef = D6B4B9C0283E73970071B67A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6B4B9CA283E73970071B67A /* Array */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Array;
+			remoteRef = D6B4B9C9283E73970071B67A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6B4B9D3283E73980071B67A /* Queue */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Queue;
+			remoteRef = D6B4B9D2283E73980071B67A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D6B4B9AB283E73760071B67A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B4B9DA283E73980071B67A /* main.cpp in Sources */,
+				D6B4B9DD283E73980071B67A /* pointer_to_char.cpp in Sources */,
+				D6B4B9E1283E73980071B67A /* dynamic_heap_memory.cpp in Sources */,
+				D6B4B9DE283E73980071B67A /* pointer_size.cpp in Sources */,
+				D6B4B9DF283E73980071B67A /* pointer_rules.cpp in Sources */,
 				D6B4B9B3283E73760071B67A /* main.cpp in Sources */,
+				D6B4B9DC283E73980071B67A /* main.cpp in Sources */,
+				D6B4B9DB283E73980071B67A /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
