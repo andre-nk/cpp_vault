@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     //cout << *p_number0 << endl; //possible crash
     
     //Solution => init pointer or check for nullptr
-    int *p_number0{nullptr}; //null assign, but predictable
+    int *p_number0(nullptr); //null assign, but predictable
     
     cout << endl;
     if(p_number0 != nullptr){
@@ -40,7 +40,7 @@ int main(int argc, const char * argv[]) {
     //#2: Use of Deleted Pointer
     cout << endl;
     //init original var and its pointer
-    int *p_number1{new int{67}};
+    int *p_number1(new int(67));
     
     //normal
     cout << "Pre-Delete: " << *p_number1 << endl;
@@ -64,8 +64,8 @@ int main(int argc, const char * argv[]) {
     
     //======//
     //#3 => Multiple Chaining Pointers
-    int *p_number2{new int{27}}; //init var and pointer
-    int *p_number3{p_number2}; //chain pointer to other ptr
+    int *p_number2(new int(27)); //init var and pointer
+    int *p_number3(p_number2); //chain pointer to other ptr
     
     cout << endl;
     cout << "Ori Pointer: " << p_number2 << endl;

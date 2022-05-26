@@ -89,7 +89,7 @@ public:
 };
 
 
-int stack_main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[]) {
    
     Stack stackExample;
     int option, position, value;
