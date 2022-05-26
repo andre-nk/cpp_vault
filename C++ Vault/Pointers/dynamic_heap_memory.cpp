@@ -9,7 +9,7 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, const char * argv[]) {
+int dynamic_heap_memory(int argc, const char * argv[]) {
     //Stack
             //Finite
             //Auto managed by the code flow and scopes (local blocks)
@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     int *p_number1{nullptr}; //Initialize p_number1 original variable (null) along with its pointer
     
     //Hypothesis:
-    //Apparently if I declare *p_numberx (var and its pointers), the plain print (p_number2) is also a pointer
+    //Apparently if I declare *p_numberx with new (var and its pointers), the plain print (p_number2) is also a pointer
     //Thus, if we want to get or assign p_numberx's value, we must use *p_numberx
     
     //Dynamically reserve OS memory for this pointer (program) until returned

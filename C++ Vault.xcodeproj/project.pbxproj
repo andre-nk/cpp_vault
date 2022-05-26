@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D62A2E5D283FBA0D008D4BB2 /* dangling_pointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D62A2E5B283FBA0D008D4BB2 /* dangling_pointer.cpp */; };
 		D6B4B9B3283E73760071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9B2283E73760071B67A /* main.cpp */; };
 		D6B4B9DA283E73980071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9BE283E73970071B67A /* main.cpp */; };
 		D6B4B9DB283E73980071B67A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6B4B9C7283E73970071B67A /* main.cpp */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D62A2E5B283FBA0D008D4BB2 /* dangling_pointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dangling_pointer.cpp; sourceTree = "<group>"; };
 		D6B4B9AF283E73760071B67A /* C++ Vault */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "C++ Vault"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B4B9B2283E73760071B67A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D6B4B9BA283E73970071B67A /* Stack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stack.xcodeproj; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				D6B4B9D6283E73980071B67A /* pointer_size.cpp */,
 				D6B4B9D7283E73980071B67A /* pointer_rules.cpp */,
 				D6B4B9D9283E73980071B67A /* dynamic_heap_memory.cpp */,
+				D62A2E5B283FBA0D008D4BB2 /* dangling_pointer.cpp */,
 			);
 			path = Pointers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62A2E5D283FBA0D008D4BB2 /* dangling_pointer.cpp in Sources */,
 				D6B4B9DA283E73980071B67A /* main.cpp in Sources */,
 				D6B4B9DD283E73980071B67A /* pointer_to_char.cpp in Sources */,
 				D6B4B9E1283E73980071B67A /* dynamic_heap_memory.cpp in Sources */,
