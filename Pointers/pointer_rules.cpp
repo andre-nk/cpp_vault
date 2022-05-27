@@ -9,10 +9,11 @@
 using namespace std;
 
 int pointer_rules(int argc, const char * argv[]) {
-    //Good practices:
+    //Printing guide:
     //& is always for getting the pointer or variable address;
     //* is always for getting pointer's value (original var);
     //plain is for the default pointer's or original var's value (address for pointers or real value for var);
+    //use const *p_number1 to make the pointer target fix;
     
     int number1{24};
     int *p_number1{&number1};
@@ -38,7 +39,7 @@ int pointer_rules(int argc, const char * argv[]) {
     
     //Initializing pointer to null
     //int *p_number3 {nullptr}; // Also works
-    int * p_number3 {};// Initialized with pointer equivalent of zero: nullptr
+    int * p_number3 ();// Initialized with pointer equivalent of zero: nullptr
     // A pointer pointing nowhere
     //*p_number3 = 33; // Writting into pointer pointing nowhere : BAD, CRASH
     cout << endl;
