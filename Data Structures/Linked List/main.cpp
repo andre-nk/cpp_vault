@@ -4,8 +4,8 @@ using namespace std;
 // no need custom class e.g. Stack, because Linked List's children is separated in memory wise
 struct Node
 {
-    int data;
-    struct Node *next;
+        int data;
+        struct Node *next;
 };
 
 //?define global Node which is the head / the first Node.
@@ -13,126 +13,174 @@ struct Node *head;
 
 void insertFirst(int nodeValue)
 {
-    //? Creating new Node in memory
-    struct Node *temp = new Node();
+        //? Creating new Node in memory
+        struct Node *temp = new Node();
 
-    //? Assigning params value
-    temp->data = nodeValue;
+        //? Assigning params value
+        temp->data = nodeValue;
 
-    //? Assigning next Node's address (because the new Node will always be the first)
-    //? If the list is empty, the current head is null (VALID), bcs there's no other Node yet
-    //? If the list is not empty, the new Node will be the new head, thus the current head will be the 2nd Node or next node for the 1st one!
-    temp->next = head;
+        //? Assigning next Node's address (because the new Node will always be the first)
+        //? If the list is empty, the current head is null (VALID), bcs there's no other Node yet
+        //? If the list is not empty, the new Node will be the new head, thus the current head will be the 2nd Node or next node for the 1st one!
+        temp->next = head;
 
-    //? Shifting the old head to the 2nd Node and assigning temp as the head node
-    head = temp;
+        //? Shifting the old head to the 2nd Node and assigning temp as the head node
+        head = temp;
 }
 
-// void insertAtCustom(int nodeValue, int targetIndex)
-// {    
-//     int index = 0;
+void insertAt(int value, int targetIndex)
+{
+        struct Node *newNode = new Node();
+        newNode->data = value;
 
-        //? Assign temp as the head and create a new Node
-//     struct Node *temp = head;
-//     struct Node *newNode = new Node();
+        // If index == 0, insert at first
+        if (targetIndex == 0)
+        {
+                // Push the current head to the 2nd pos
+                newNode->next = head;
+                // Replacing the head as the 1st pos
+                head = newNode;
+                return;
+        }
 
+        // Node (n-1)
+        struct Node *prevNode = head;
+        for (int i = 0; i < targetIndex - 1; i++)
+        {
+                // Cycles through the list until (n-1)
+                if (prevNode->next != NULL)
+                {
+                        prevNode = prevNode->next;
+                }
+                else
+                {
+                        cout << "The targetIndex for insertion can't be more than the list's length!" << endl;
+                        cout << "Try again" << endl;
+                        return;
+                }
+        }
 
-        //? Assign newNode data into nodeValue;
-//     newNode->data = nodeValue;
+        // Create the link between (n) & (n+1)
+        newNode->next = prevNode->next;
 
-        //? Define previous and next Node from the target index
-//     struct Node *prevNode = NULL;
-//     struct Node *nextNode = NULL;
+        // Break the link between (n-1) & (n+1)
+        prevNode->next = newNode;
 
+        return;
+}
 
-        //? If temp / the head / the first Node is null, insert at the beginning!
-//     if (temp == NULL)
-//     {
-//         cout << "The Linked List hasn't been initialized yet, inserting one at the beginning" << endl;
-//         insertFirst(nodeValue);
-//         return;
-//     }
+void deleteAt(int targetIndex)
+{
+        struct Node *targetNode = head;
 
-        //? If the targetIndex == 0 => insert at the beginning!
-//     if(targetIndex == 0){
-//         insertFirst(nodeValue);
-//         return;
-//     }
+        if (targetIndex == 0)
+        {
+                // Update the head to the list's 2nd pos
+                head = head->next;
+                free(targetNode);
+                return;
+        }
 
-        //? Loop through the list where prevNode and nextNode pointers will be saved
-//     while (temp != NULL)
-//     {
-//         if ((index + 1) == targetIndex)
-//         {
-//             cout << "Previous Node from Target Index has been found" << endl;
-//             prevNode = temp;
-//             temp = temp->next;
-//         }
-//         else if ((index - 1) == targetIndex)
-//         {
-//             cout << "Next Node from Target Index has been found" << endl;
-//             nextNode = temp;
-//             temp = NULL;
-//         }
-//         else
-//         {
-//             cout << "Processing" << endl;
-//         }
+        // Here, targetNode is (n-1) Node
+        for (int i = 0; i < targetIndex - 1; i++)
+        {
+                if (targetNode->next != NULL)
+                {
+                        targetNode = targetNode->next;
+                }
+                else
+                {
+                        cout << "The targetIndex for deletion can't be more than the list's length!" << endl;
+                        cout << "Try again" << endl;
+                        return;
+                }
+        }
 
-//         index++;
-//     }
+        // Break the link between (n-1) and n
+        // nthNode is the n Node (delcared so that we can access (n+1) Node)
+        struct Node *nthNode = targetNode->next;
+        // Update the (n-1) Node link to (n+1) Node
+        targetNode->next = nthNode->next;
 
-        //? Updating prevNode's next into the new Node address;
-//     prevNode->next = newNode;
-
-        //? Assigning the new Node's next into the next Node address;
-//     newNode->next = nextNode;
-// }
+        free(nthNode);
+        return;
+}
 
 void print()
 {
-    int length = 0;
-    struct Node *temp = head;
+        int length = 0;
+        struct Node *temp = head;
 
-    //? If the the list is empty or this is the last Node, the next will be NULL, thus stopping the loop
-    cout << "The Linked List children: ";
-    while (temp != NULL)
-    {
-        length++;
-        cout << temp->data << " - ";
-        //? Replacing the current temp with the next Node's address
-        temp = temp->next;
-    }
-    cout << endl;
-    cout << "The List's length: " << length << endl;
-    cout << endl;
+        //? If the the list is empty or this is the last Node, the next will be NULL, thus stopping the loop
+        cout << "The Linked List children: ";
+        while (temp != NULL)
+        {
+                length++;
+                cout << temp->data << " - ";
+                //? Replacing the current temp with the next Node's address
+                temp = temp->next;
+        }
+        cout << endl;
+        cout << "The List's length: " << length << endl;
+        cout << endl;
 }
 
 int main()
 {
-    head = NULL;
-    int insertionLength, insertValue, targetIndex;
+        head = NULL;
+        int insertionLength, insertValue, targetIndex, answer;
+        bool continueProgram = true;
 
-    // cout << "Initialising Mock Linked List..." << endl;
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     insertFirst(i);
-    //     print();
-    // }
+        while (continueProgram == true)
+        {
+                cout << endl;
+                cout << endl;
+                cout << "Linked List Program" << endl;
+                cout << "What do you want to do? " << endl;
+                cout << "1.) Insert number at first position" << endl;
+                cout << "2.) Insert number at n position" << endl;
+                cout << "3.) Delete number at n position" << endl;
+                cout << "4.) Print list" << endl;
+                cout << "5.) Exit program" << endl;
+                cin >> answer;
 
-    //insertionLength for breaking the main loop
-    cout << "How many times do you want to insert numbers?" << endl;
-    cin >> insertionLength;
+                if (answer == 1)
+                {
+                        cout << "Insert the number for 1st pos:" << endl;
+                        cin >> insertValue;
 
-    for (int i = 0; i < insertionLength; i++){
-        cout << "Enter the number you want to insert: " << endl;
-        cin >> insertValue;
+                        insertFirst(insertValue);
+                        print();
+                }
+                else if (answer == 2)
+                {
+                        cout << "Type the number to be inserted:" << endl;
+                        cin >> insertValue;
+                        cout << "Type the index position for the insertion:" << endl;
+                        cin >> targetIndex;
 
-        cout << "Where do you want to insert this number? " << endl;
-        cin >> targetIndex;
+                        insertAt(insertValue, targetIndex);
+                        print();
+                }
+                else if (answer == 3)
+                {
+                        cout << "Type the index position for the deletion:" << endl;
+                        cin >> targetIndex;
 
-        cout << "Inserting " << insertValue << " at " << targetIndex << endl;
-        // insertAt(insertValue, targetIndex);
-        print();
-    }
+                        deleteAt(targetIndex);
+                        print();
+                }
+                else if (answer == 4)
+                {
+                        print();
+                }
+                else
+                {
+                        cout << "Exiting program..." << endl;
+                        continueProgram = false;
+                        break;
+                }
+        }
+
+        return 0;
 }
