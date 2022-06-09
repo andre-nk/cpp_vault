@@ -106,6 +106,38 @@ void deleteAt(int targetIndex)
         return;
 }
 
+void reverse()
+{
+        struct Node *current, *prev, *next;
+
+        //The iteration will start at head / 1st Node (current)
+        current = head;
+
+        //Since current will start from the 1st Node, the previous from the 1st Node is NULL
+        prev = NULL;
+
+
+        //If the current / head / 1st Node is not NULL, proceed. This will apply to the following nodes as well
+        while (current != NULL)
+        {      
+                //next is the (n+1) Node from current
+                next = current->next;
+
+                //? Update the current's next link from (n+1) Node to (n-1) Node 
+                current->next = prev;
+
+                //? Move the "prev" pointer to the next Node (current Node in this stage)
+                prev = current;
+
+                //? Move the "current" pointer to the next Node (n+1) in this stage
+                current = next; 
+        }
+        
+        //? By the end of the loop, the head is currently null, because of current = next (which next is NULL at the list's end)
+        //? So, we should update the head into the previous (not null) Node
+        head = prev;
+}
+
 void print()
 {
         int length = 0;
@@ -140,8 +172,9 @@ int main()
                 cout << "1.) Insert number at first position" << endl;
                 cout << "2.) Insert number at n position" << endl;
                 cout << "3.) Delete number at n position" << endl;
-                cout << "4.) Print list" << endl;
-                cout << "5.) Exit program" << endl;
+                cout << "4.) Reverse list" << endl;
+                cout << "5.) Print list" << endl;
+                cout << "6.) Exit program" << endl;
                 cin >> answer;
 
                 if (answer == 1)
@@ -171,6 +204,11 @@ int main()
                         print();
                 }
                 else if (answer == 4)
+                {
+                        reverse();
+                        print();
+                }
+                else if (answer == 5)
                 {
                         print();
                 }
