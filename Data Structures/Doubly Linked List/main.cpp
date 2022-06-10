@@ -18,17 +18,22 @@ public:
   {
     Node *temp = new Node();
 
+    //Init new Node properties to avoid segmentation fault
     temp->data = data;
     temp->next = NULL;
     temp->prev = NULL;
 
+    //Assign temp to head instantly, if head is NULL
     if (head == NULL)
     {
       head = temp;
       return;
     }
 
+    //Update head -> prev to temp; (head is shifted to 2nd pos)
     head->prev = temp;
+    
+    //Update temp-> next and head pos
     temp->next = head;
     head = temp;
   }
@@ -37,6 +42,7 @@ public:
   {
     Node *temp = new Node();
 
+    //Declare new Node properties
     temp->data = data;
     temp->next = NULL;
     temp->prev = NULL;
@@ -47,33 +53,44 @@ public:
       return;
     }
 
+    //Declare the prevNode as the head (since head is not null after the above IF)
+    //The prevNode will be updated through the loop, until it reached (n-1) from index -1
     Node *prevNode = head;
     for (int i = 0; i < index - 1; i++)
     {
       prevNode = prevNode->next;
     }
 
+    //The future nextNode for the new Node is prevNode->next
     Node *nextNode = prevNode->next;
+
+    //Update newNode next and prev
     temp->next = nextNode;
     temp->prev = prevNode;
 
+    //Update prevNode (next) and nextNode (prev) into temp
     prevNode->next = temp;
     nextNode->prev = temp;
   }
 
   void deleteAt(int index){
+
+    //Reach the (n-1) Node
     Node *prevNode = head;
     for (int i = 0; i < index - 1; i++)
     {
       prevNode = prevNode->next;
     }
 
+    //Declare the current and nextNode
     Node *currentNode = prevNode->next;
     Node *nextNode = currentNode->next;
     
+    //Restore the links
     prevNode->next = nextNode;
     nextNode->prev = currentNode;
 
+    //Free up currentNode (deleted)
     free(currentNode);
   }
 
@@ -93,6 +110,7 @@ public:
     Node *temp = head;
 
     // Cycle through the list until the last Node, which is the (n-1) from NULL
+    // temp->next != NULL to make sure the loop won't reach until NULL chain, which got no prev (can't be cycled back later on)
     while (temp->next != NULL)
     {
       temp = temp->next;
