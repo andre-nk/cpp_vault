@@ -3,15 +3,42 @@ using namespace std;
 
 class Stack
 {
-private:
-  int array[10];
+public:
+  int maxSize;
+
+  //? Dynamic array that will adjust its size to the maxSize value;
+  int *array = new int[maxSize];
   int top = -1;
 
-public:
+  //? Constructor for the Stack and therefore the maxSize value
+  Stack(int _maxSize)
+  {
+    maxSize = _maxSize;
+  };
+
+  //? Push with dynamic array solution
   void push(int value)
   {
-    if(top == 10 - 1){
+    cout << "Top is " << top << endl;
+    cout << "Max Size is " << maxSize - 1 << endl;
+
+    if (top == maxSize - 1)
+    {
       cout << "Error! Stack overflow" << endl;
+      cout << "Max size is " << maxSize << endl;
+      cout << "Expanding array..." << endl;
+
+      int *tempArray = new int[maxSize * 2];
+      for (int i = 0; i < maxSize; i++)
+      {
+        tempArray[i] = array[i];
+      }
+
+      array = tempArray;
+      maxSize = maxSize * 2;
+
+      top++;
+      array[top] = value;
       return;
     }
 
@@ -27,9 +54,9 @@ public:
 
   void print()
   {
-    for (int i = 10 - 1; i > -1; i--)
+    for (int i = 0; i < maxSize; i++)
     {
-      cout << i << ".) " << array[i] << endl;
+      cout << array[i] << " - ";
     }
   }
 
@@ -46,7 +73,7 @@ public:
 
 int main()
 {
-  Stack stack = Stack();
+  Stack stack = Stack(4);
 
   int insertValue, targetIndex, answer;
   bool continueProgram = true;
@@ -103,5 +130,6 @@ int main()
     }
   }
 
+  delete stack.array;
   return 0;
 }
