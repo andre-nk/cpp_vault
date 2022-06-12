@@ -46,10 +46,13 @@ public:
     array[top] = value;
   }
 
-  void pop()
+  int pop()
   {
-    array[top] = -1;
+    int poppedValue = array[top];
+    array[top] = 0;
     top--;
+
+    return poppedValue;
   }
 
   void print()
@@ -60,6 +63,18 @@ public:
     }
   }
 
+  void reverse()
+  {
+    int *tempArray = new int[maxSize];
+    for (int i = 0; i < maxSize; i++)
+    {
+      tempArray[i] = array[maxSize - i];
+    }
+
+    array = tempArray;
+    return;
+  }
+
   int getTop()
   {
     return array[top];
@@ -67,7 +82,12 @@ public:
 
   bool isEmpty()
   {
-    return top == -1;
+    if (top == -1)
+    {
+      return true;
+    }
+
+    return false;
   }
 };
 
@@ -89,7 +109,8 @@ int main()
     cout << "3.) Print" << endl;
     cout << "4.) Top" << endl;
     cout << "5.) isEmpty" << endl;
-    cout << "6.) Exit program" << endl;
+    cout << "6.) Reverse" << endl;
+    cout << "7.) Exit program" << endl;
     cin >> answer;
 
     if (answer == 1)
@@ -104,7 +125,7 @@ int main()
     {
       cout << "Popping the upmost top item in the stack..." << endl;
 
-      stack.pop();
+      cout << "Popped: " << stack.pop() << endl;
       stack.print();
     }
     else if (answer == 3)
@@ -121,6 +142,12 @@ int main()
     {
       cout << "Is the stack empty?";
       cout << stack.isEmpty() << endl;
+    }
+    else if (answer == 6)
+    {
+      cout << "Reversing stack...";
+      stack.reverse();
+      stack.print();
     }
     else
     {
