@@ -8,141 +8,158 @@
 #include <iostream>
 using namespace std;
 
-class Queue {
+class Queue
+{
 private:
-    int front;
-    int rear;
-    int arr[4];
+    int head;
+    int tail;
+    int maxSize;
+
 public:
-    Queue(){
-        front = -1;
-        rear = -1;
-        for (int i = 0; i < 4; i++) {
+    int* arr = new int[maxSize];
+
+    Queue(int _maxSize)
+    {
+        maxSize = _maxSize;
+        head = -1;
+        tail = -1;
+        for (int i = 0; i < maxSize; i++)
+        {
             arr[i] = 0;
         }
     }
-    
-    bool isEmpty(){
-        //front and rear will both have -1 when the queue is empty
-        if(front == -1 && rear == -1){
-            return true;
-        } else {
-            return false;
-        }
+
+    bool isEmpty()
+    {
+        return head == -1 && tail == -1;
     }
-    
-    bool isFull(){
-        //rear will be incremented to the end
-        if(rear == 4 - 1){
-            return true;
-        } else {
-            return false;
-        }
+
+    bool isFull()
+    {
+        return tail == maxSize - 1;
     }
-    
-    //insert newItem from the back (rear)
-    void enqueue(int newItem){
-        if(isFull()){
+
+    // insert newItem from the back (tail)
+    void enqueue(int newItem)
+    {
+        if (isFull())
+        {
+            cout << "Error! Stack overflow" << endl;
+            cout << "Expanding array..." << endl;
+            
+            int* tempArr = new int[maxSize * 2];
+            for (int i = 0; i < maxSize; i++)
+            {
+                tempArr[i] = arr[i];
+            }
+            
+            arr = tempArr;
+            maxSize = maxSize * 2;
+
+            free(arr);
+        }
+
+        if (isEmpty())
+        {
+            head++;
+        }
+
+        tail++;
+        arr[tail] = newItem;
+    }
+
+    // remove item from the head
+    void dequeue()
+    {
+        if (isEmpty())
+        {
+            cout << "No items in the list yet. Nothing to remove!" << endl;
             return;
-        } else if (isEmpty()){
-            //isEmpty
-            front = rear = 0;
-        } else {
-            //rear will be incremented and point next queue index (newItem target index location)
-            rear++;
         }
-        
-        //assign newItem on target index location
-        arr[rear] = newItem;
+
+        arr[head] = 0;
+        head++;
     }
-    
-    //remove item from the front
-    int dequeue(){
-        int x = 0;
-        
-        if(isEmpty()){
-            return x;
-        //front and rear will be same when the queue is empty or only contains one item
-        } else if (front == rear){
-            x = arr[front];
-            
-            //empty out the pointers, because the queue already empty too
-            front = rear = -1;
-        } else {
-            x = arr[front];
-            arr[front] = 0;
-            
-            //move front to point the next index (and left out unused left spaces with 0)
-            front++;
-        }
-        
-        return x;
-    }
-    
-    void display(){
-        for (int i = 0; i < 4; i++) {
-            cout << arr[i] << endl;
+
+    void print()
+    {
+        for (int i = 0; i < maxSize; i++)
+        {
+            cout << arr[i] << " - ";
         }
     }
 };
 
-int queue_main(int argc, const char * argv[]) {
-    Queue queueInstance;
+int main(int argc, const char *argv[])
+{
+    Queue queueInstance = Queue(4);
     int option, value;
-    
-    do {
-        cout<<"What operation do you want to perform? Select Option number. Enter auto exit." << endl;
+
+    do
+    {
+        cout << "What operation do you want to perform? Select Option number. Enter auto exit." << endl;
         cout << "1. Enqueue" << endl;
         cout << "2. Dequeue" << endl;
         cout << "3. isEmpty()" << endl;
         cout << "4. isFull()" << endl;
-        cout << "5. display()" << endl;
-        cout << "9. Clear Screen"<< endl;
-        
+        cout << "5. print()" << endl;
+        cout << "9. Clear Screen" << endl;
+
         cin >> option;
-        switch (option) {
-            case 1:
-                cout << "Input the newItem to be enqueued into the Queue: " << endl;
-                cin >> value;
-                
-                queueInstance.enqueue(value);
-                break;
-                
-            case 2:
-                cout << "The dequeued value is: " <<  queueInstance.dequeue() << endl;
-                
-                break;
-            
-            case 3:
-                if(queueInstance.isEmpty()){
-                    cout << "The queue is empty" << endl;
-                } else {
-                    cout << "The queue is not empty" << endl;
-                }
-                break;
-                
-            case 4:
-                if(queueInstance.isFull()){
-                    cout << "The queue is full" << endl;
-                } else {
-                    cout << "The queue is not full" << endl;
-                }
-                break;
-                
-            case 5:
-                queueInstance.display();
-                break;
-                
-            case 9:
-                system("cls");
-                break;
-                
-            default:
-                cout << "Please enter a valid option number" << endl;
-                break;
+
+        cout << endl;
+        switch (option)
+        {
+        case 1:
+            cout << "Input the newItem to be enqueued into the Queue: " << endl;
+            cin >> value;
+
+            queueInstance.enqueue(value);
+            queueInstance.print();
+            break;
+
+        case 2:
+            queueInstance.dequeue();
+            queueInstance.print();
+
+            break;
+
+        case 3:
+            if (queueInstance.isEmpty())
+            {
+                cout << "The queue is empty" << endl;
+            }
+            else
+            {
+                cout << "The queue is not empty" << endl;
+            }
+            break;
+
+        case 4:
+            if (queueInstance.isFull())
+            {
+                cout << "The queue is full" << endl;
+            }
+            else
+            {
+                cout << "The queue is not full" << endl;
+            }
+            break;
+
+        case 5:
+            queueInstance.print();
+            break;
+
+        case 9:
+            system("cls");
+            break;
+
+        default:
+            cout << "Please enter a valid option number" << endl;
+            break;
         }
-        
+
     } while (option != 0);
-    
+
     return 0;
 }

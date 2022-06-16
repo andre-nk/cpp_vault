@@ -8,7 +8,7 @@ struct Node
   Node *prev;
 };
 
-class DoublydoublyLinkedList
+class DoublyLinkedList
 {
 private:
   Node *head = NULL;
@@ -130,7 +130,7 @@ public:
 
 int main()
 {
-  DoublydoublyLinkedList doublyLinkedList = DoublydoublyLinkedList();
+  DoublyLinkedList doublyLinkedList = DoublyLinkedList();
 
   int insertValue, targetIndex, answer;
   bool continueProgram = true;

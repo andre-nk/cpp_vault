@@ -1,5 +1,21 @@
 {
   "files.associations": {
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "__locale": "cpp",
+    "__tuple": "cpp",
+    "array": "cpp",
+    "concepts": "cpp",
+    "functional": "cpp",
+    "iterator": "cpp",
+    "optional": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "variant": "cpp",
+    "version": "cpp",
+    "compare": "cpp",
+    "memory": "cpp",
+    "ostream": "cpp"
   }
 }

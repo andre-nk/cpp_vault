@@ -102,7 +102,7 @@ public:
       current = next;
     }
     
-    //? Note: This is important, because by the end of the loop, the head will be null, which got no next for the printer!
+    //? Note: This is important, because by the end of the loop, the head will be null, which got no next for the printer!a
     head = prev;
     return;
   }
