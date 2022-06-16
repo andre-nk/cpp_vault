@@ -22,12 +22,22 @@ public:
   // insert newItem from the back (tail)
   void enqueue(int newItem)
   {
-    Node *temp = new Node();
-    temp->data = newItem;
-    temp->next = head;
+    Node *newNode = new Node();
+    newNode->data = newItem;
+    newNode->next = NULL;
 
-    head = temp;
-    return;
+    if(head == NULL){
+      head = newNode;
+      return;
+    }
+
+    Node *lastNode = head;
+    while (lastNode->next != NULL)
+    {
+      lastNode = lastNode->next;
+    }
+    
+    lastNode->next = newNode;
   }
 
   // remove item from the head
