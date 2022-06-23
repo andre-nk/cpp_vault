@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  Queue
-//
-//  Created by Andreas Notokusumo on 17/05/22.
-//
-
 #include <iostream>
 using namespace std;
 
@@ -16,7 +9,7 @@ private:
     int maxSize;
 
 public:
-    int* arr = new int[maxSize];
+    int *arr = new int[maxSize];
 
     Queue(int _maxSize)
     {
@@ -46,13 +39,13 @@ public:
         {
             cout << "Error! Stack overflow" << endl;
             cout << "Expanding array..." << endl;
-            
-            int* tempArr = new int[maxSize * 2];
+
+            int *tempArr = new int[maxSize * 2];
             for (int i = 0; i < maxSize; i++)
             {
                 tempArr[i] = arr[i];
             }
-            
+
             arr = tempArr;
             maxSize = maxSize * 2;
 
