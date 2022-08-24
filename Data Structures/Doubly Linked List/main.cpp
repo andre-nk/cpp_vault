@@ -88,7 +88,7 @@ public:
     
     //Restore the links
     prevNode->next = nextNode;
-    nextNode->prev = currentNode;
+    nextNode->prev = prevNode;
 
     //Free up currentNode (deleted)
     free(currentNode);

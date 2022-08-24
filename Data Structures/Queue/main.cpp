@@ -48,8 +48,6 @@ public:
 
             arr = tempArr;
             maxSize = maxSize * 2;
-
-            free(arr);
         }
 
         if (isEmpty())
