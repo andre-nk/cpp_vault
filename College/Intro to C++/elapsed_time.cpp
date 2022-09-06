@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-  int velocity, distance, time;
+  double velocity, distance, time;
 
   cout << "Program Menghitung Waktu Tempuh" << endl;
 
