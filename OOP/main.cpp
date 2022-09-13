@@ -132,7 +132,6 @@ int main(int argc, const char *argv[])
 
     // By default, inheritance is private, thus parent's methods aren't accessible
     // Fixed by adding public keyword after inheritance colon (extends)
-    darthTalon.characterDetails();
 
     //#4c: POLYMORPHISM: Usage of Overriden Methods on Child Class (via Pointers and virtual parent's method)
     ForceSensitive *p_darth_talon = &darthTalon;
