@@ -1,25 +1,30 @@
 #include <iostream>
 using namespace std;
+int main()
+{
+  int x = 10;
 
-int main(){
-  int a, b, c;
-  int max = a;
-
-  cout << "Bilangan Terbesar dari 3 Bilangan" << endl;
-  cin >> a >> b >> c;
-
-  if((a > b) && (a > c)){
-    max = a;
+  if (x < 5)
+  {
+    if (x = 10)
+    {
+      cout << "A";
+    }
+    else
+    {
+      cout << "B";
+    }
   }
-
-  if((b > a) && (b > c)){
-    max = b;
+  else if (x < 10)
+  {
+    cout << "C";
   }
-
-  if((c > a) && (c > b)){
-    max = c;
+  else if (x < 15)
+  {
+    cout << "D";
   }
-
-  cout << max << endl;
-  return 0;
+  else
+  {
+    cout << "e";
+  }
 }
