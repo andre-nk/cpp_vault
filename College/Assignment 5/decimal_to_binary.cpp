@@ -3,31 +3,23 @@ using namespace std;
 
 int main()
 {
-  int decimal, n = decimal, i = 0;
-  char binary[11];
-
-  cout << "Masukkan bilangan desimal:" << endl;
+  //decimal to binary
+  int decimal;
+  int binary[8];
+  int i = 0;
+  cout << "Enter a decimal number: ";
   cin >> decimal;
-
-  if (decimal != 0)
+  while (decimal > 0)
   {
-    while (decimal != 0)
-    {
-      if(decimal % 2 == 1){
-        binary[i] = '1';
-      } else {
-        binary[i] = '0';
-      }
-      decimal = decimal / 2;
-      i++;
-    }
+    binary[i] = decimal % 2;
+    decimal = decimal / 2;
+    i++;
   }
-
-  cout << "Hasil Konversi: ";
+  cout << "The binary number is: ";
   for (int j = i - 1; j >= 0; j--)
   {
     cout << binary[j];
   }
-
+  cout << endl;
   return 0;
 }
