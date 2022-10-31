@@ -14,7 +14,6 @@ void px(string st)
 }
 
 //What's the function of px()?
-
 int main()
 {
   px("PQRS");

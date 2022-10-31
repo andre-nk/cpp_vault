@@ -67,5 +67,6 @@
     "algorithm": "cpp",
     "utility": "cpp",
     "iomanip": "cpp"
-  }
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
