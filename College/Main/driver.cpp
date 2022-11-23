@@ -1,46 +1,34 @@
-#include <algorithm>
 #include <iostream>
 using namespace std;
 
 int main()
 {
-  srand(time(NULL));
-  int n;
+  // linear search
+  int arr[5] = {1, 2, 3, 4, 5};
+  int key;
 
-  cout << "Insert a number: ";
-  cin >> n;
+  cout << "Enter a number to search: ";
+  cin >> key;
 
-  int arr[n];
+  int i;
 
-  for (int i = 0; i < n; i++)
+  //comparison count
+  int count = 0;
+
+  for (i = 0; i < 5; i++)
   {
-    arr[i] = rand() % 100 + 1;
+    count++;
+    if (arr[i] == key)
+    {
+      cout << "Found at " << i << endl;
+      break;
+    }
   }
 
-  cout << "Data before sorted: ";
-  for (int i = 0; i < n; i++)
+  if (i == 5)
   {
-    cout << arr[i] << " ";
+    cout << "Not found" << endl;
   }
-  cout << endl;
 
-  cout << " " << endl;
-
-  clock_t begin = clock();
-  sort(arr, arr + n);
-  clock_t end = clock();
-
-  double elapsed_time = double(end - begin) / CLOCKS_PER_SEC;
-
-  cout << "Data after sorted: ";
-
-  for (int i = 0; i < n; i++)
-  {
-    cout << arr[i] << " ";
-  }
-  cout << endl;
-
-  cout << "Elapsed time: " << elapsed_time << " s" << endl;
-
-  return 0;
+  cout << "Number of comparisons: " << count << endl;
 }
