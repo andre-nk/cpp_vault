@@ -19,7 +19,7 @@ int main()
   clock_t ascMergeStart = clock();
 
   // Descending merge sort
-  int temp[n];
+  int temp[n];g
   for (int i = 0; i < n; i++)
   {
     temp[i] = arr[i];
