@@ -10,38 +10,41 @@ void merge(int *array, int l, int m, int r)
    int larr[nl], rarr[nr];
 
    for (i = 0; i < nl; i++)
-      larr[i] = array[l + i];
+      larr[i] = array[l + i]; // fill left array
    for (j = 0; j < nr; j++)
-      rarr[j] = array[m + 1 + j];
+      rarr[j] = array[m + 1 + j]; // fill right array
    i = 0;
    j = 0;
    k = l;
 
-   while (i < nl && j < nr)
+   // marge temp arrays to real array
+   while (i < nl && j < nr) // while both arrays have elements
    {
       if (larr[i] <= rarr[j])
       {
-         array[k] = larr[i];
-         i++;
+         array[k] = larr[i]; // add smaller element from left array
+         i++;                // move to next element in left array
       }
       else
       {
-         array[k] = rarr[j];
-         j++;
+         array[k] = rarr[j]; // add smaller element from right array
+         j++;                // move to next element in right array
       }
-      k++;
+      k++; // move to next index in array
    }
-   while (i < nl)
+
+   while (i < nl) // extra element in left array
    {
-      array[k] = larr[i];
-      i++;
-      k++;
+      array[k] = larr[i]; // add element to array
+      i++;                // move to next index in left array
+      k++;                // move to next index in array
    }
+
    while (j < nr)
    {
-      array[k] = rarr[j];
-      j++;
-      k++;
+      array[k] = rarr[j]; // add element to array
+      j++;                // move to next index in right array
+      k++;                // move to next index in array
    }
 }
 
@@ -50,11 +53,12 @@ void mergeSort(int *array, int l, int r)
    int m;
    if (l < r)
    {
+      // 0, 8 / 2 = 4
       int m = l + (r - l) / 2;
       // Sort first and second arrays
-      mergeSort(array, l, m);
-      mergeSort(array, m + 1, r);
-      merge(array, l, m, r);
+      mergeSort(array, l, m);     // left array
+      mergeSort(array, m + 1, r); // right array
+      merge(array, l, m, r);      // merge sorted arrays
    }
 }
 
@@ -62,7 +66,7 @@ int binarySearch(int array[], int x, int low, int high)
 {
    if (high >= low)
    {
-      int mid = low + (high - low) / 2;
+      int mid = low + (high - low) / 2; // find middle element
 
       // If found at mid, then return it
       if (array[mid] == x)
@@ -70,10 +74,10 @@ int binarySearch(int array[], int x, int low, int high)
 
       // Search the left half
       if (array[mid] > x)
-         return binarySearch(array, x, low, mid - 1);
+         return binarySearch(array, x, low, mid - 1); // search left array
 
       // Search the right half
-      return binarySearch(array, x, mid + 1, high);
+      return binarySearch(array, x, mid + 1, high); // search right array
    }
 }
 
@@ -98,6 +102,7 @@ int main()
 
    mergeSort(akhir, 0, N - 1);
 
-   int result = binarySearch(akhir, x, 0, N - 1) + 1;
+   int result = binarySearch(akhir, x, 0, N - 1) + 1; //+1 because array start from 0
+
    cout << result;
 }

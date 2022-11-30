@@ -25,18 +25,20 @@ int main()
       {"403536", "Reidar Putten", 89},
   };
 
-  // sort mahasiswa by id ascendingly
+  // selection sort
   for (int i = 0; i < 12; i++)
   {
+    int min = i;
     for (int j = i + 1; j < 12; j++)
     {
-      if (mhs[i].id > mhs[j].id)
+      if (mhs[j].score < mhs[min].score)
       {
-        mahasiswa temp = mhs[i];
-        mhs[i] = mhs[j];
-        mhs[j] = temp;
+        min = j;
       }
     }
+    mahasiswa temp = mhs[i];
+    mhs[i] = mhs[min];
+    mhs[min] = temp;
   }
 
   // binary search mahasiswa by inputted id
